@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "../build")));
 
 // 해당 path 라우터
 // cors 설정 미들웨어 (origin 주소에서만 허용)
-app.use("/api", apiRouter);
+app.use("/api/movie", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
 app.get("/", (req, res) => {
