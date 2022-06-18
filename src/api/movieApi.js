@@ -73,6 +73,5 @@ export const DetailMovieApi = async (title, releaseDts) => {
   const query = `&ServiceKey=${KMDB_API_KEY}&title=${title}&releaseDts=${releaseDts}`;
   const response = await fetch(url + query);
   const json = await response.json();
-
   return json.Data[0].Result[0];
 };
