@@ -31,10 +31,10 @@ app.use(express.json());
 app.use("/api/movie", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
-app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build"));
+  res.sendFile(path.join(__dirname, "../build/index.js"));
 });
 
 const PORT = process.env.PORT || 5000;
