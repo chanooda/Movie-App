@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "../build")));
 app.use("/api/movie", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
 

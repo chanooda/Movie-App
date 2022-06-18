@@ -14,6 +14,7 @@ export const getMovieSearch = async (req, res) => {
         "X-Naver-Client-Id": CLIENT_ID,
         "X-Naver-Client-Secret": CLIENT_SECRET,
         "Access-Control-Allow-Origin": "*",
+        Accept: "application/json",
       },
       params: {
         query: req.query.keyword,
@@ -37,6 +38,9 @@ export const getImage = async (req, res) => {
           title: req.query.title,
           releaseDts: req.query.releaseDts,
         },
+        headers: {
+          Accept: "application/json",
+        },
       }
     );
     res.status(200).json(response.data);
@@ -54,6 +58,9 @@ export const getMovieInfo = async (req, res) => {
           ServiceKey: KMDB_API_KEY,
           title: req.query.title,
           releaseDts: req.query.releaseDts,
+        },
+        headers: {
+          Accept: "application/json",
         },
       }
     );
