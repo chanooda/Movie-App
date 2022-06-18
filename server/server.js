@@ -4,9 +4,6 @@ import cors from "cors";
 import path from "path";
 
 const app = express();
-console.log(
-  "asdhasldfhalsjkdfhljkasdhfljkashdflkjashdflkjashdlfkjahsdflkjhasdlfkjhasdkjfhkjdfhlaskjdfhvaisudjfhaskjdfhlkasjdhf"
-);
 // 배포용 주소와 개발용 주소 화이트 리스트에 추가
 const whitelist = [
   "http://localhost:5000",

@@ -20,7 +20,7 @@ export const getMovieSearch = async (req, res) => {
         display: 100,
       },
     });
-    console.log(response.data);
+
     const data = response.data.items;
     res.status(200).json(data);
   } catch (error) {
@@ -40,11 +40,8 @@ export const getImage = async (req, res) => {
         },
       }
     );
-    console.log(
-      "asdajshdkhjasdfasgdkfjhgasdjhfgkasjhdfgkasjhdgfkjahsdfgkjhasdgfkjhasdgfkjhasdfgkhjasdfghjkasdfgkasjhdfgasjkhdfgkasjhdfg"
-    );
-    console.log(response.data);
-    res.status(200).json(response.data);
+
+    res.status(200).json({ asdasd: "Asdasdasadasd" });
   } catch (error) {
     res.status(404).json(error.response.data);
   }
@@ -62,7 +59,7 @@ export const getMovieInfo = async (req, res) => {
         },
       }
     );
-    console.log(response.data);
+
     res.status(200).json(response.data);
   } catch (error) {
     res.status(404).json(error.response.data);
