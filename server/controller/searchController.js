@@ -14,13 +14,13 @@ export const getMovieSearch = async (req, res) => {
         "X-Naver-Client-Id": CLIENT_ID,
         "X-Naver-Client-Secret": CLIENT_SECRET,
         "Access-Control-Allow-Origin": "*",
-        Accept: "application/json",
       },
       params: {
         query: req.query.keyword,
         display: 100,
       },
     });
+    console.log(response.data);
     const data = response.data.items;
     res.status(200).json(data);
   } catch (error) {
@@ -38,11 +38,9 @@ export const getImage = async (req, res) => {
           title: req.query.title,
           releaseDts: req.query.releaseDts,
         },
-        headers: {
-          Accept: "application/json",
-        },
       }
     );
+    console.log(response.data);
     res.status(200).json(response.data);
   } catch (error) {
     res.status(404).json(error.response.data);
@@ -59,11 +57,9 @@ export const getMovieInfo = async (req, res) => {
           title: req.query.title,
           releaseDts: req.query.releaseDts,
         },
-        headers: {
-          Accept: "application/json",
-        },
       }
     );
+    console.log(response.data);
     res.status(200).json(response.data);
   } catch (error) {
     res.status(404).json(error.response.data);

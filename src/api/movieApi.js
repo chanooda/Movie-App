@@ -41,11 +41,7 @@ export const weekMovieChart = async (weekGb = "1") => {
 };
 // 네이버 검색 api 백엔드로 부터 받아옴
 export const naverMovieSearch = async (keyword) => {
-  const response = await fetch(`/api/movie/search?keyword=${keyword}`, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
+  const response = await fetch(`/api/movie/search?keyword=${keyword}`);
   const json = await response.json();
 
   if (json.errorMessage) {
@@ -56,14 +52,9 @@ export const naverMovieSearch = async (keyword) => {
 //영화 이미지를 받아옴
 export const getMovieImage = async (keyword, releaseDts) => {
   const url = `/api/movie/getImage?title=${keyword}&releaseDts=${releaseDts}`;
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
+  const response = await fetch(url);
   const json = await response.json();
-  console.log(response);
-  console.log(json);
+
   if (json.errorMessage) {
     return json;
   }
@@ -72,11 +63,7 @@ export const getMovieImage = async (keyword, releaseDts) => {
 // 영화 상세 정보 API
 export const DetailMovieApi = async (title, releaseDts) => {
   const apiUrl = `/api/movie/getMovieInfo?title=${title}&releaseDts=${releaseDts}`;
-  const response = await fetch(apiUrl, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
+  const response = await fetch(apiUrl);
   const json = await response.json();
   return json.Data[0].Result[0];
 };
