@@ -54,6 +54,8 @@ export const getMovieImage = async (keyword, releaseDts) => {
   const url = `/api/movie/getImage?title=${keyword}&releaseDts=${releaseDts}`;
   const response = await fetch(url);
   const json = await response.json();
+  console.log(response);
+  console.log(json);
   if (json.errorMessage) {
     return json;
   }
