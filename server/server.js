@@ -11,7 +11,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // 배포용 주소와 개발용 주소 화이트 리스트에 추가
-const whitelist = ["http://localhost:5000", "http://localhost:3000"];
+const whitelist = [
+  "http://localhost:5000",
+  "http://localhost:3000",
+  "https://chanoo-movie-app.herokuapp.com",
+];
 // 위 whitelist에 포함된 주소면 넘기고 아니면 오류
 const corsOptions = {
   origin: function (origin, callback) {
