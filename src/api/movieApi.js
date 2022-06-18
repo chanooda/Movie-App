@@ -10,7 +10,7 @@ export const oneDayMovieChart = async () => {
   date.setDate(date.getDate() - 1);
   // 정규식을 통해 yyyymmdd 형식 만들기
   const targetDate = date.toISOString().substring(0, 10).replace(/-/g, "").replace();
-  const url = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${targetDate}`;
+  const url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${targetDate}`;
   try {
     const response = await fetch(url);
     const json = await response.json();
@@ -32,7 +32,7 @@ export const weekMovieChart = async (weekGb = "1") => {
   date.setDate(date.getDate() - 7);
   // 정규식을 통해 yyyymmdd 형식 만들기
   const targetDate = date.toISOString().substring(0, 10).replace(/-/g, "").replace();
-  const url = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=${API_KEY}&targetDt=${targetDate}&weekGb=${weekGb}`;
+  const url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=${API_KEY}&targetDt=${targetDate}&weekGb=${weekGb}`;
   try {
     const response = await fetch(url);
     const json = await response.json();
@@ -46,7 +46,7 @@ export const weekMovieChart = async (weekGb = "1") => {
 
 //영화 이미지를 받아옴
 export const getMovieImage = async (keyword, releaseDts) => {
-  const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
+  const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
   const query = `&ServiceKey=${KMDB_API_KEY}&title=${keyword}&releaseDts=${releaseDts}`;
   const response = await fetch(url + query);
   const json = await response.json();
@@ -58,7 +58,7 @@ export const getMovieImage = async (keyword, releaseDts) => {
 
 // 네이버 검색 api 백엔드로 부터 받아옴
 export const naverMovieSearch = async (keyword) => {
-  const response = await fetch(`http://localhost:5000/api/search?keyword=${keyword}`);
+  const response = await fetch(`https://localhost:5000/api/search?keyword=${keyword}`);
   const json = await response.json();
 
   if (json.errorMessage) {
@@ -69,7 +69,7 @@ export const naverMovieSearch = async (keyword) => {
 
 // 영화 상세 정보 API
 export const DetailMovieApi = async (title, releaseDts) => {
-  const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
+  const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
   const query = `&ServiceKey=${KMDB_API_KEY}&title=${title}&releaseDts=${releaseDts}`;
   const response = await fetch(url + query);
   const json = await response.json();
