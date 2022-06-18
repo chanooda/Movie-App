@@ -5,11 +5,4 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Detail from "./components/Detail";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="detail" element={<Detail />} />
-    </Routes>
-  </BrowserRouter>
-);
+root.render(<App />);
