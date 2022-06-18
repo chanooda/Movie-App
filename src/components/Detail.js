@@ -6,8 +6,8 @@ import { replaceText } from "../utils/replaceText";
 import { dateFormat } from "../utils/utils";
 
 import DetailImages from "./DetailImages";
-import Layout from "../Layout";
 import styles from "../css/Detail.module.css";
+import Layout from "../Layout";
 
 function Detail() {
   const location = useLocation();

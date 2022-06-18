@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static("build"));
 
 // 프론트로부터 json data를 받아오기 위한 미들웨어
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // 배포용 주소와 개발용 주소 화이트 리스트에 추가

@@ -39,11 +39,17 @@ function SearchMovies() {
       {loading ? null : (
         <div>
           <ul className={styles.searchedMoviesList}>
-            {paginationInfo.movies.map((el, i) => (
-              <li key={i}>
-                <SearchedMovie movie={el} />
+            {paginationInfo.movies.length > 0 ? (
+              paginationInfo.movies.map((el, i) => (
+                <li key={i}>
+                  <SearchedMovie movie={el} />
+                </li>
+              ))
+            ) : (
+              <li style={{ "text-align": "center", color: "var(--main-color)" }}>
+                검색 결과가 없습니다.
               </li>
-            ))}
+            )}
           </ul>
           <ul className={styles.pageNumbers}>
             {/* prev 버튼과 next 버튼과 현재 페이지 번호들을 출력 onClick 리스너로 페이지네이션 함수를 실행 */}
