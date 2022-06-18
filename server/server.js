@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, "../build")));
 app.use("/api", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
-app.get("*", (req, res) => {
-  res.sendFile(process.cwd() + "/build/index.html");
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
