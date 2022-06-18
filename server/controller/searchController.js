@@ -7,7 +7,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const KMDB_API_KEY = process.env.KMDB_API_KEY;
 
-export const postMovieSearch = async (req, res) => {
+export const getMovieSearch = async (req, res) => {
   try {
     const response = await axios.get(`https://openapi.naver.com/v1/search/movie.json`, {
       headers: {
@@ -16,7 +16,7 @@ export const postMovieSearch = async (req, res) => {
         "Access-Control-Allow-Origin": "*",
       },
       params: {
-        query: req.body.keyword,
+        query: req.query.keyword,
         display: 100,
       },
     });
@@ -27,15 +27,15 @@ export const postMovieSearch = async (req, res) => {
   }
 };
 
-export const postImage = async (req, res) => {
+export const getImage = async (req, res) => {
   try {
     const response = await axios.get(
       `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`,
       {
         params: {
           ServiceKey: KMDB_API_KEY,
-          title: req.body.title,
-          releaseDts: req.body.releaseDts,
+          title: req.query.title,
+          releaseDts: req.query.releaseDts,
         },
       }
     );
@@ -45,15 +45,15 @@ export const postImage = async (req, res) => {
   }
 };
 
-export const postMovieInfo = async (req, res) => {
+export const getMovieInfo = async (req, res) => {
   try {
     const response = await axios.get(
       `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`,
       {
         params: {
           ServiceKey: KMDB_API_KEY,
-          title: req.body.title,
-          releaseDts: req.body.releaseDts,
+          title: req.query.title,
+          releaseDts: req.query.releaseDts,
         },
       }
     );
