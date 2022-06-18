@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { dateFormat } from "../utils/utils";
 
 function ChartMovie({ movieInfo, audCategory }) {
-  console.log("rendered");
   const [movieImage, setMovieImage] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hover, setHover] = useState(false);
