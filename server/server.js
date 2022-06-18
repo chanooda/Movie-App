@@ -54,7 +54,7 @@ app.get("/api/movie/getImage", async (req, res) => {
 });
 
 // root로 접근 시 이 프론트를 띄우줌
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
 
