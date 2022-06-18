@@ -21,9 +21,9 @@ export const getMovieSearch = async (req, res) => {
       },
     });
     const data = response.data.items;
-    return res.status(200).json(data);
+    res.status(200).json(data);
   } catch (error) {
-    return res.status(404).json(error.response.data);
+    res.status(404).json(error.response.data);
   }
 };
 
@@ -39,9 +39,9 @@ export const getImage = async (req, res) => {
         },
       }
     );
-    return res.status(200).json(response.data);
+    res.status(200).json(response.data);
   } catch (error) {
-    return res.status(404).json(error.response.data);
+    res.status(404).json(error.response.data);
   }
 };
 
@@ -57,8 +57,8 @@ export const getMovieInfo = async (req, res) => {
         },
       }
     );
-    return res.status(200).json(response.data);
+    res.status(200).json(response.data);
   } catch (error) {
-    return res.status(404).json(error.response.data);
+    res.status(404).json(error.response.data);
   }
 };
