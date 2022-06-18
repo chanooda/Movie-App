@@ -1,6 +1,5 @@
 // 영화진흥위원회 API Key
 const API_KEY = process.env.REACT_APP_API_KEY;
-const KMDB_API_KEY = process.env.REACT_APP_KMDB_API_KEY;
 
 // 하루 박스오피스 순위
 // async/await 를 이용해 비동기 함수를 동기화 처리한다.
@@ -46,8 +45,8 @@ export const weekMovieChart = async (weekGb = "1") => {
 
 //영화 이미지를 받아옴
 export const getMovieImage = async (keyword, releaseDts) => {
-  const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
-  const query = `&ServiceKey=${KMDB_API_KEY}&title=${keyword}&releaseDts=${releaseDts}`;
+  const url = `/api/getImage`;
+  const query = `?title=${keyword}&releaseDts=${releaseDts}`;
   const response = await fetch(url + query);
   const json = await response.json();
   if (json.errorMessage) {
@@ -58,7 +57,7 @@ export const getMovieImage = async (keyword, releaseDts) => {
 
 // 네이버 검색 api 백엔드로 부터 받아옴
 export const naverMovieSearch = async (keyword) => {
-  const response = await fetch(`https://localhost:5000/api/search?keyword=${keyword}`);
+  const response = await fetch(`/api/search?keyword=${keyword}`);
   const json = await response.json();
 
   if (json.errorMessage) {
@@ -69,8 +68,8 @@ export const naverMovieSearch = async (keyword) => {
 
 // 영화 상세 정보 API
 export const DetailMovieApi = async (title, releaseDts) => {
-  const apiUrl = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
-  const query = `&ServiceKey=${KMDB_API_KEY}&title=${title}&releaseDts=${releaseDts}`;
+  const apiUrl = `/api/getMovieInfo`;
+  const query = `?title=${title}&releaseDts=${releaseDts}`;
   const response = await fetch(apiUrl + query);
   const json = await response.json();
   return json.Data[0].Result[0];

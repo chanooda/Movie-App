@@ -20,7 +20,6 @@ const whitelist = [
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log(origin);
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -32,7 +31,7 @@ const corsOptions = {
 // cors 설정 미들웨어 (origin 주소에서만 허용)
 app.use("/api", cors(corsOptions), apiRouter);
 
-// 모든 주소로 접근 시 이 프론트를 띄우줌
+// root로 접근 시 이 프론트를 띄우줌
 app.get("/", (req, res) => {
   res.sendFile(process.cwd() + "/build/index.html");
 });

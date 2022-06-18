@@ -12,7 +12,6 @@
 
 .searchedMovieContainer {
   display: flex;
-  justify-content: space-between;
   gap: 10px;
 }
 .searchedMovieContainer > div:first-child {
@@ -20,7 +19,7 @@
 }
 
 .movieInfo {
-  width: 890px;
+  width: 990px;
 }
 .movieInfo > h3 {
   margin-bottom: 10px;
