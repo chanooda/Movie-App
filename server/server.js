@@ -25,13 +25,12 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../build")));
-
 // 해당 path 라우터
 // cors 설정 미들웨어 (origin 주소에서만 허용)
 app.use("/api/movie", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
+app.use(express.static(path.join(__dirname, "../build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
