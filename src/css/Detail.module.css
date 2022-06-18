@@ -1,0 +1,135 @@
+.detailContainer {
+  width: 1100px;
+  padding-top: 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+.detailContainer h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: rgb(231, 94, 94);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+.title span {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.37);
+  margin-bottom: 10px;
+}
+.title h3 {
+  font-size: 28px;
+}
+.title hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: rgb(231, 94, 94);
+}
+
+.info {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgb(231, 94, 94);
+}
+.info img {
+  width: 200px;
+  height: auto;
+}
+
+.infoText {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1100px;
+  gap: 15px;
+}
+.infoText > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.infoText > div > div {
+  display: flex;
+  flex-direction: column;
+}
+.infoText > div > div > span {
+  margin-bottom: 10px;
+}
+.more {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+}
+.red {
+  color: rgb(231, 94, 94);
+  font-weight: bold;
+}
+
+.imageSliders {
+  margin-bottom: 20px;
+}
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  width: 1100px;
+  padding: 20px 0px;
+  padding-left: 20px;
+  border: 3px solid rgb(231, 94, 94);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.imageContainer button {
+  all: unset;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  z-index: 15;
+  cursor: pointer;
+  color: rgb(231, 94, 94);
+  text-shadow: 1px 1px 1px black;
+}
+.imageContainer .next {
+  right: 10px;
+}
+.imageContainer .prev {
+  left: 10px;
+}
+
+.images {
+  display: flex;
+  gap: 20px;
+  transition: all 0.5s;
+}
+
+.posterImage {
+  width: calc((100% - 100px) / 5);
+}
+.stillImage {
+  width: calc((100% - 100px) / 5);
+}
+
+.keywords {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.keyword {
+  padding: 7px 15px;
+  border-radius: 10px;
+  background-color: rgba(230, 79, 79, 0.253);
+  font-size: 15px;
+  font-weight: bold;
+}

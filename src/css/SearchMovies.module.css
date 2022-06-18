@@ -1,0 +1,77 @@
+.searchedMoviesContainer {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.searchedMoviesList {
+  margin-top: 50px;
+}
+.searchedMoviesList li {
+  margin-top: 10px;
+}
+
+.searchedMovieContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.searchedMovieContainer > div:first-child {
+  width: 110px;
+}
+
+.movieInfo {
+  width: 890px;
+}
+.movieInfo > h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.movieInfo > p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.infoKey {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+}
+
+.searchForm > input[type="text"] {
+  all: unset;
+  width: 500px;
+  height: 40px;
+  background-color: #fff;
+}
+
+.searchForm > input[type="submit"] {
+  all: unset;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+}
+
+.pageNumbers {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+.pageNumbers > li {
+  padding: 5px 12px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
