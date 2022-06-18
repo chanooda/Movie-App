@@ -19,14 +19,13 @@ function ChartMovie({ movieInfo, audCategory }) {
   }, [movieInfo.movieNm, movieInfo.openDt]);
 
   return (
-    // <Link
-    //   to={"detail"}
-    //   state={{
-    //     title: movieInfo.movieNm,
-    //     releaseDts: dateFormat(movieInfo.openDt),
-    //   }}
-    // >
-    <>
+    <Link
+      to={"detail"}
+      state={{
+        title: movieInfo.movieNm,
+        releaseDts: dateFormat(movieInfo.openDt),
+      }}
+    >
       {loading ? null : (
         <div>
           <div
@@ -56,9 +55,7 @@ function ChartMovie({ movieInfo, audCategory }) {
           </div>
         </div>
       )}
-    </>
-
-    // </Link>
+    </Link>
   );
 }
 

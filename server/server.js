@@ -4,6 +4,7 @@ import cors from "cors";
 import path from "path";
 
 const app = express();
+
 // 배포용 주소와 개발용 주소 화이트 리스트에 추가
 const whitelist = [
   "http://localhost:5000",
@@ -30,10 +31,11 @@ app.use(express.json());
 app.use("/api/movie", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
-// app.use(express.static(path.join(__dirname, "../build")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../build", "index.html"));
-// });
+app.use(express.static(path.join(__dirname, "/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build"));
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server listening on port http://localhost:${PORT}`));

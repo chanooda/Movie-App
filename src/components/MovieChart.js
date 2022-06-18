@@ -4,7 +4,6 @@ import ChartMovie from "./ChartMovie";
 import styles from "../css/MovieChart.module.css";
 
 function MovieChart() {
-  console.log("rendered");
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [oneDayAud, setOneDayAud] = useState(true);
@@ -95,15 +94,13 @@ function MovieChart() {
           <div className={styles.movieChartMovies}>
             {/* 박스오피스 정보가 없을 시에는 에러 메세지를 띄어주고 있으면 각각의 영화정보를 나타내는 Component로 전달 */}
             {movies ? (
-              movies
-                .slice(0, 1)
-                .map((movie) => (
-                  <ChartMovie
-                    key={movie.movieCd}
-                    movieInfo={movie}
-                    audCategory={oneDayAud ? "하루관객" : weekdayAud ? "주중관객" : "주말관객"}
-                  ></ChartMovie>
-                ))
+              movies.map((movie) => (
+                <ChartMovie
+                  key={movie.movieCd}
+                  movieInfo={movie}
+                  audCategory={oneDayAud ? "하루관객" : weekdayAud ? "주중관객" : "주말관객"}
+                ></ChartMovie>
+              ))
             ) : (
               <p>정보 불러오기에 실패했습니다.</p>
             )}
