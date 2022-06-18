@@ -10,6 +10,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="detail" element={<Detail />} />
+      <Route path="api" element={<App />} />
     </Routes>
   </BrowserRouter>
 );
