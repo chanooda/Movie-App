@@ -1,14 +1,9 @@
 import express from "express";
 import apiRouter from "./routers/apiRouter";
 import cors from "cors";
+import path from "path";
 
 const app = express();
-
-app.use(express.static("build"));
-
-// 프론트로부터 json data를 받아오기 위한 미들웨어
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // 배포용 주소와 개발용 주소 화이트 리스트에 추가
 const whitelist = [
@@ -26,10 +21,16 @@ const corsOptions = {
     }
   },
 };
+// 프론트로부터 json data를 받아오기 위한
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "../build")));
 
 // 해당 path 라우터
 // cors 설정 미들웨어 (origin 주소에서만 허용)
-app.use("/api", cors(corsOptions), apiRouter);
+app.use("/api", apiRouter);
 
 // root로 접근 시 이 프론트를 띄우줌
 app.get("*", (req, res) => {
