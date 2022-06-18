@@ -69,7 +69,7 @@ export const naverMovieSearch = async (keyword) => {
 
 // 영화 상세 정보 API
 export const DetailMovieApi = async (title, releaseDts) => {
-  const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
+  const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&listCount=1`;
   const query = `&ServiceKey=${KMDB_API_KEY}&title=${title}&releaseDts=${releaseDts}`;
   const response = await fetch(url + query);
   const json = await response.json();
