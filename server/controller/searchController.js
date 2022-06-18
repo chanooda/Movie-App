@@ -40,6 +40,9 @@ export const getImage = async (req, res) => {
         },
       }
     );
+    console.log(
+      "asdajshdkhjasdfasgdkfjhgasdjhfgkasjhdfgkasjhdgfkjahsdfgkjhasdgfkjhasdgfkjhasdfgkhjasdfghjkasdfgkasjhdfgasjkhdfgkasjhdfg"
+    );
     console.log(response.data);
     res.status(200).json(response.data);
   } catch (error) {
