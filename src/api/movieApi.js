@@ -1,8 +1,8 @@
 // 영화진흥위원회 API Key
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const dev = true;
-const devUrl = dev ? "http://localhost:5000" : null;
+const dev = false;
+const devUrl = dev ? "http://localhost:5000" : "";
 
 // 하루 박스오피스 순위
 // async/await 를 이용해 비동기 함수를 동기화 처리한다.
