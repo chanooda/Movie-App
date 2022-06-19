@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../css/Detail.module.css";
 
 function DetailImages({ images, title }) {
   const [count, setCount] = useState(1);
   const [slide, setSlide] = useState(false);
   const [sliding, setSliding] = useState(false);
-  const fullCount = Math.ceil(images.length / 6);
+  const [mQuery, setMQuery] = useState(window.innerWidth < 700 ? true : false);
+  const fullCount = mQuery ? Math.ceil(images.length / 3) : Math.ceil(images.length / 5);
+
+  const screenChange = (event) => {
+    const matches = event.matches;
+    setMQuery(matches);
+  };
+  // 첫 레더링시 width 정보를 state에 전달
+  useEffect(() => {
+    let mql = window.matchMedia("screen and (max-width:700px)");
+    mql.addEventListener("change", screenChange);
+    return () => mql.removeEventListener("change", screenChange);
+  }, []);
 
   const buttonOnClick = (method) => {
     if (sliding) return;
@@ -33,12 +45,7 @@ function DetailImages({ images, title }) {
         >
           {images[0] !== ""
             ? images.map((el, i) => (
-                <img
-                  className={title === "포스터" ? styles.posterImage : styles.stillImage}
-                  key={i}
-                  src={el}
-                  alt={title + " 이미지"}
-                ></img>
+                <img className={styles.posterImage} key={i} src={el} alt={title + " 이미지"}></img>
               ))
             : "이미지가 존재하지 않습니다."}
         </div>

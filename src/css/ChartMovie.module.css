@@ -1,3 +1,7 @@
+.chartMovieContainer {
+  width: calc((100% - 50px) / 5);
+}
+
 .onedayAd {
   padding: 5px 3px;
   display: flex;
@@ -17,8 +21,9 @@
   display: flex;
   align-items: center;
 }
+
 .chartMovie {
-  width: 176px;
+  width: 100%;
 }
 
 .errorMessage {
@@ -50,7 +55,19 @@
   border-radius: 4px;
   font-weight: bold;
   display: none;
+  z-index: 100;
 }
 .show {
   display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .chartMovieContainer {
+    width: calc((100% - 30px) / 3);
+  }
+}
+@media screen and (max-width: 600px) {
+  .chartMovieContainer {
+    width: calc((100% - 20px) / 2);
+  }
 }

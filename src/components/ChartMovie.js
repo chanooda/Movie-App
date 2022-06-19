@@ -20,6 +20,7 @@ function ChartMovie({ movieInfo, audCategory }) {
 
   return (
     <Link
+      className={styles.chartMovieContainer}
       to={"detail"}
       state={{
         title: movieInfo.movieNm,
@@ -27,7 +28,7 @@ function ChartMovie({ movieInfo, audCategory }) {
       }}
     >
       {loading ? null : (
-        <div>
+        <>
           <div
             className={styles.imageContainer}
             onMouseEnter={() => setHover(true)}
@@ -53,7 +54,7 @@ function ChartMovie({ movieInfo, audCategory }) {
               </span>
             </p>
           </div>
-        </div>
+        </>
       )}
     </Link>
   );

@@ -1,6 +1,9 @@
 // 영화진흥위원회 API Key
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+const dev = true;
+const devUrl = dev ? "http://localhost:5000" : null;
+
 // 하루 박스오피스 순위
 // async/await 를 이용해 비동기 함수를 동기화 처리한다.
 export const oneDayMovieChart = async () => {
@@ -41,7 +44,7 @@ export const weekMovieChart = async (weekGb = "1") => {
 };
 // 네이버 검색 api 백엔드로 부터 받아옴
 export const naverMovieSearch = async (keyword) => {
-  const response = await fetch(`/api/movie/search?keyword=${keyword}`);
+  const response = await fetch(devUrl + `/api/movie/search?keyword=${keyword}`);
   const json = await response.json();
 
   if (json.errorMessage) {
@@ -52,7 +55,7 @@ export const naverMovieSearch = async (keyword) => {
 //영화 이미지를 받아옴
 export const getMovieImage = async (keyword, releaseDts) => {
   const url = `/api/movie/getImage?title=${keyword}&releaseDts=${releaseDts}`;
-  const response = await fetch(url);
+  const response = await fetch(devUrl + url);
   const json = await response.json();
 
   if (json.errorMessage) {
@@ -63,7 +66,7 @@ export const getMovieImage = async (keyword, releaseDts) => {
 // 영화 상세 정보 API
 export const DetailMovieApi = async (title, releaseDts) => {
   const apiUrl = `/api/movie/getMovieInfo?title=${title}&releaseDts=${releaseDts}`;
-  const response = await fetch(apiUrl);
+  const response = await fetch(devUrl + apiUrl);
   const json = await response.json();
   return json.Data[0].Result[0];
 };

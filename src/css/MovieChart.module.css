@@ -1,7 +1,7 @@
 .movieChartContainer {
-  width: 1100px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 90px 20px 90px;
+  padding: 20px 90px;
   display: flex;
   flex-direction: column;
   background-color: #393a3a;
@@ -11,8 +11,8 @@
 
 .movieChartMovies {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -34,4 +34,10 @@
 
 .pickedTab {
   color: var(--main-color);
+}
+
+@media screen and (max-width: 800px) {
+  .movieChartContainer {
+    padding: 20px 20px;
+  }
 }
