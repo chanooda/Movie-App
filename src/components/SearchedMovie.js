@@ -11,6 +11,7 @@ function SearchedMovie({ movie }) {
       to="detail"
       state={{
         title,
+        // dateFormat : YYYY-MM-DD 형식의 날짜를 YYYYMMDD형식을 바꾸는 사용자 함수
         releaseDts: dateFormat(movie.pubDate),
       }}
     >

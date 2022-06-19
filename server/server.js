@@ -30,9 +30,9 @@ app.use(express.json());
 // cors 설정 미들웨어 (origin 주소에서만 허용)
 app.use("/api/movie", apiRouter);
 
-// root로 접근 시 이 프론트를 띄우줌
+//express 정적 파일 제공
 app.use(express.static(path.join(__dirname, "../build")));
-
+// root로 접근 시 이 프론트를 띄우줌
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.js"));
 });

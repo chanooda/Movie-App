@@ -24,6 +24,7 @@ function ChartMovie({ movieInfo, audCategory }) {
       to={"detail"}
       state={{
         title: movieInfo.movieNm,
+        // dateFormat : YYYY-MM-DD 형식의 날짜를 YYYYMMDD형식을 바꾸는 사용자 함수
         releaseDts: dateFormat(movieInfo.openDt),
       }}
     >
@@ -31,9 +32,11 @@ function ChartMovie({ movieInfo, audCategory }) {
         <>
           <div
             className={styles.imageContainer}
+            // 마우스 올리면 State true 내리면 false
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
+            {/* hover State true 일 시 class  추가해 제목이 보이게 함 */}
             <div className={styles.movieTitle + " " + (hover ? styles.show : "")}>
               <span>{movieInfo.movieNm}</span>
             </div>
