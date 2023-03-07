@@ -1,7 +1,7 @@
 // 영화진흥위원회 API Key
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const dev = false;
+const dev = process.env.NODE_ENV;
 const devUrl = dev ? "http://localhost:5000" : "";
 
 // 하루 박스오피스 순위
@@ -57,7 +57,7 @@ export const getMovieImage = async (keyword, releaseDts) => {
   const url = `/api/movie/getImage?title=${keyword}&releaseDts=${releaseDts}`;
   const response = await fetch(devUrl + url);
   const json = await response.json();
-
+  console.log(json);
   if (json.errorMessage) {
     return json;
   }

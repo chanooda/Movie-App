@@ -25,6 +25,7 @@ function MovieChart() {
         return;
       }
       data = await oneDayMovieChart();
+
       // 네비게이션 상태 관리
       setOneDayAud(true);
       setWeekendAud(false);
@@ -49,6 +50,7 @@ function MovieChart() {
       setWeekdayAud(true);
     }
     // 받아온 정보 State에 지정
+
     setMovies(data);
     // 로딩 끝
     setLoading(false);
@@ -58,6 +60,7 @@ function MovieChart() {
   useEffect(() => {
     (async () => {
       const data = await oneDayMovieChart();
+
       setMovies(data);
       setLoading(false);
     })();

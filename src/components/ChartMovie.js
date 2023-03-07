@@ -8,13 +8,15 @@ function ChartMovie({ movieInfo, audCategory }) {
   const [movieImage, setMovieImage] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hover, setHover] = useState(false);
-
   // 영화의 사진을 가져오기 위한 접근
   useEffect(() => {
     (async () => {
+      console.log(movieInfo);
       const data = await getMovieImage(movieInfo.movieNm, dateFormat(movieInfo.openDt));
+
       setMovieImage(data);
       setLoading(false);
+      console.log(data);
     })();
   }, [movieInfo.movieNm, movieInfo.openDt]);
 

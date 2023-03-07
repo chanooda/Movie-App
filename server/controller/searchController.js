@@ -37,9 +37,12 @@ export const getImage = async (req, res) => {
           ServiceKey: KMDB_API_KEY,
           title: req.query.title,
           releaseDts: req.query.releaseDts,
+          releaseDte: req.query.releaseDts,
         },
       }
     );
+    console.log(response.data);
+    console.log(req.query);
 
     res.status(200).json(response.data);
   } catch (error) {

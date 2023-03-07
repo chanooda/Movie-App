@@ -40,6 +40,9 @@
   align-items: flex-start;
   border-bottom: 1px solid rgb(231, 94, 94);
 }
+.info > div {
+  width: 100%;
+}
 .info img {
   width: 200px;
   height: auto;
